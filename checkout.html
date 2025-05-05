@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SimpleShop - Checkout</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <header class="header">
+    <div class="container">
+      <div class="header-content">
+        <div class="logo">
+          <a href="index.html">SimpleShop</a>
+        </div>
+        <nav class="nav">
+          <ul class="nav-list">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="products.html">Products</a></li>
+          </ul>
+        </nav>
+        <div class="header-actions">
+          <button class="theme-toggle" id="theme-toggle">
+            <i class="fas fa-moon"></i>
+            <i class="fas fa-sun"></i>
+          </button>
+          <a href="cart.html" class="cart-icon">
+            <i class="fas fa-shopping-cart"></i>
+            <span class="cart-count" id="cart-count">0</span>
+          </a>
+          <button class="mobile-menu-toggle" id="mobile-menu-toggle">
+            <i class="fas fa-bars"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="checkout-section">
+      <div class="container">
+        <h1>Checkout</h1>
+        <div class="checkout-content">
+          <div class="checkout-form-container">
+            <form id="checkout-form" class="checkout-form">
+              <div class="card">
+                <div class="card-header">
+                  <h2>Contact Information</h2>
+                </div>
+                <div class="card-content">
+                  <div class="form-group">
+                    <label for="fullName">Full Name *</label>
+                    <input type="text" id="fullName" name="fullName" required>
+                  </div>
+                  <div class="form-group">
+                    <label for="email">Email Address *</label>
+                    <input type="email" id="email" name="email" required>
+                  </div>
+                  <div class="form-group">
+                    <label for="phone">Phone Number *</label>
+                    <input type="tel" id="phone" name="phone" required>
+                  </div>
+                </div>
+              </div>
+
+              <div class="card">
+                <div class="card-header">
+                  <h2>Shipping Address</h2>
+                </div>
+                <div class="card-content">
+                  <div class="form-group checkbox-group">
+                    <input type="checkbox" id="useStoreAddress" name="useStoreAddress">
+                    <label for="useStoreAddress">Pick up from store</label>
+                  </div>
+                  <div class="form-group">
+                    <label for="address">Street Address *</label>
+                    <textarea id="address" name="address" required></textarea>
+                  </div>
+                  <div class="form-row">
+                    <div class="form-group">
+                      <label for="city">City *</label>
+                      <input type="text" id="city" name="city" required>
+                    </div>
+                    <div class="form-group">
+                      <label for="state">State/Province</label>
+                      <input type="text" id="state" name="state" required>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="zipCode">ZIP/Postal Code *</label>
+                    <input type="text" id="zipCode" name="zipCode" required>
+                  </div>
+                </div>
+              </div>
+
+              <div class="card">
+                <div class="card-header">
+                  <h2>Payment Method</h2>
+                </div>
+                <div class="card-content">
+                  <div class="payment-methods">
+                    <div class="payment-method">
+                      <input type="radio" id="card" name="paymentMethod" value="card" checked>
+                      <label for="card">
+                        <i class="fas fa-credit-card"></i>
+                        Credit/Debit Card
+                      </label>
+                    </div>
+                    <div class="payment-method">
+                      <input type="radio" id="cod" name="paymentMethod" value="cod">
+                      <label for="cod">
+                        <i class="fas fa-home"></i>
+                        Cash on Delivery
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <button type="submit" class="btn btn-primary btn-block" id="complete-order-btn">Complete Order</button>
+            </form>
+          </div>
+          <div class="order-summary-container">
+            <div class="card">
+              <div class="card-header">
+                <h2>Order Summary</h2>
+              </div>
+              <div class="card-content" id="order-summary">
+                <!-- Order summary will be loaded here via JavaScript -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>SimpleShop</h3>
+          <p>A simple e-commerce website built with HTML, CSS, and JavaScript.</p>
+        </div>
+        <div class="footer-section">
+          <h3>Links</h3>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="products.html">Products</a></li>
+            <li><a href="cart.html">Cart</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Contact</h3>
+          <address>
+            <p>Roadcess Chowk, Biratnagar, Morang, Nepal.</p>
+            <p>Email: info@simpleshop.com</p>
+            <p>Phone: +977 9812345678</p>
+          </address>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; <span id="current-year"></span> SimpleShop. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Toast Notification -->
+  <div class="toast" id="toast">
+    <div class="toast-content">
+      <div class="toast-title" id="toast-title"></div>
+      <div class="toast-message" id="toast-message"></div>
+    </div>
+  </div>
+
+  <script src="products.js"></script>
+  <script src="cart.js"></script>
+  <script src="checkout.js"></script>
+  <script>
+    document.getElementById('current-year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
